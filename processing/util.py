@@ -300,8 +300,8 @@ class DataHandler(object):
             # build feature array from [ncontacts, 1 freq band, nsamples] squeezed and swapped axes
             feat_array_temp.append(feature_tensor[:,c,:].squeeze().swapaxes(0,1))
             
-            if c == 0:
-                print(feat_array_temp[0].shape)
+            # if c == 0:
+                # print(feat_array_temp[0].shape)
             
             if augment: # add data augmentation -> either pca or not
                 feat_array_temp[c] = self.augment_EEG(feat_array_temp[c], std_mult, pca=pca, n_components=n_components)
