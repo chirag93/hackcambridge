@@ -21,8 +21,11 @@ ml python/3.6.0
 # ml cuda/6.0
 ml cuda/7.5
 
+grep for SLURM_EXPORT_ENV
 echo ${tempdatadir}
 echo ${outputdatadir}
+
+echo ${CUDA_VISIBLE_DEVICES}
 
 # create log directory 
 logdir='_logs'
