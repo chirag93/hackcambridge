@@ -24,7 +24,6 @@ ml cuda/7.5
 grep for SLURM_EXPORT_ENV
 echo ${tempdatadir}
 echo ${outputdatadir}
-
 echo ${CUDA_VISIBLE_DEVICES}
 
 # create log directory 

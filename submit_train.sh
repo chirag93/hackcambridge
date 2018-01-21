@@ -44,7 +44,7 @@ NUM_CPUPERTASK=1
 partition=gpu 	# debug, shared, unlimited, parallel, gpu, lrgmem, scavenger
 # partition=debug
 qos=scavenger
-numgpus=4
+numgpus=1
 
 gpu="gpu:$numgpus"
 echo $gpu
