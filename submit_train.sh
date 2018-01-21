@@ -7,7 +7,9 @@
 #
 ##############################################################
 ml python/3.6.0
-ml cuda/7.5
+ml cuda
+module unload git
+source activate dnn
 # ml parallel
 
 ## activate virtualenv/condaenv to use their modules
