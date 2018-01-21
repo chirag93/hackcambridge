@@ -76,7 +76,7 @@ printf "Sbatch should run now\n"
 
 echo $sbatcomm $exvars ./runtvbarrayjob.sbatch 
 
-${sbatcomm} --export=$exvars ./runtvbarrayjob.sbatch
+${sbatcomm} --export=$exvars ./submit_train.sbatch
 
 read -p "Continuing in 0.5 Seconds...." -t 0.5
 echo "Continuing ...."

@@ -13,3 +13,21 @@
 # on TNG Cluster
 #---------------------------------------------------------------------
 ml python
+
+echo ${tempdatadir}
+echo ${outputdatadir}
+
+# create log directory 
+logdir='_logs'
+if [ -d "$logdir" ]; then  
+	echo "log directory exists!"
+else
+	mkdir $logdir
+fi
+# set jobname
+logfilename="submit_trainpy.log"
+
+printf "Running training model"
+python ./main.py ${outputdatadir} ${tempdatadir}
+
+exit
