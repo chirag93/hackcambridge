@@ -17,7 +17,9 @@
 # on TNG Cluster
 #---------------------------------------------------------------------
 ml python/3.6.0
-ml cuda/8.0
+# ml cuda/8.0
+# ml cuda/6.0
+ml cuda/9.0
 
 echo ${tempdatadir}
 echo ${outputdatadir}
