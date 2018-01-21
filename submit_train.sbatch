@@ -16,6 +16,8 @@
 # SLURM job script to run serial Python
 # on TNG Cluster
 #---------------------------------------------------------------------
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
 ml python/3.6.0
 # ml cuda/8.0
 # ml cuda/6.0
