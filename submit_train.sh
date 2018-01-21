@@ -7,7 +7,7 @@
 #
 ##############################################################
 ml python/3.6.0
-ml cuda/9.0
+ml cuda/7.5
 # ml parallel
 
 ## activate virtualenv/condaenv to use their modules
