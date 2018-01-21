@@ -37,6 +37,6 @@ fi
 logfilename="submit_trainpy.log"
 
 printf "Running training model"
-python ./main.py ${outputdatadir} ${tempdatadir}
+python ./main.py ${outputdatadir} ${tempdatadir} ${CUDA_VISIBLE_DEVICES}
 
 exit

@@ -5,8 +5,6 @@ import model.ieeg_cnn_rnn
 import model.train
 
 import processing.util as util
-import keras
-from keras.callbacks import ModelCheckpoint
 
 import os
 import numpy as np
@@ -31,6 +29,14 @@ if __name__ == '__main__':
 
 	traindatadir = str(sys.argv[1])
 	tempdatadir = str(sys.argv[2])
+	cuda_dev = int(sys.argv[3])
+
+	import os
+	# os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
+	os.environ["CUDA_VISIBLE_DEVICES"]=cuda_dev
+	import keras
+	from keras.callbacks import ModelCheckpoint
+
 
 	imsize=32
 	numfreqs = 4
