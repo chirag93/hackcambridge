@@ -302,6 +302,7 @@ class IEEGdnn():
         # # final classification layer -> softmax for multiclass, 
         # finalmodel.add(Dense(num_classes, activation='softmax'))
 
+        finalmodel.add(Flatten())
         if DROPOUT:
             finalmodel.add(Dropout(0.5))
         finalmodel.add(Dense(size_fc, activation='relu'))

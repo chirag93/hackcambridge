@@ -68,7 +68,7 @@ def train(model, images, labels, fold,
 
     return HH
 
-def poly_decay(epoch):
+def poly_decay(epoch, NUM_EPOCHS, INIT_LR):
     # initialize the maximum number of epochs, base learning rate,
     # and power of the polynomial
     maxEpochs = NUM_EPOCHS
