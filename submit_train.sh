@@ -37,7 +37,7 @@ else
 fi
 
 # 2. Define Slurm Parameters
-NUM_PROCSPERNODE=24  	# number of processors per node (1-24). Use 24 for GNU jobs.
+NUM_PROCSPERNODE=6  	# number of processors per node (1-24). Use 24 for GNU jobs.
 NUM_NODES=1				# number of nodes to request
 NUM_CPUPERTASK=1
 
