@@ -6,7 +6,7 @@
 # cluster with nodes, CPUS, tasks, GPUs
 #
 ##############################################################
-# ml python
+ml python/3.6.0
 # ml parallel
 
 ## activate virtualenv/condaenv to use their modules

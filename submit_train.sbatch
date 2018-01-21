@@ -15,7 +15,7 @@
 # SLURM job script to run serial Python
 # on TNG Cluster
 #---------------------------------------------------------------------
-ml python
+ml python/3.6.0
 
 echo ${tempdatadir}
 echo ${outputdatadir}
