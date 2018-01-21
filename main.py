@@ -13,6 +13,18 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import scale
 
+
+def poly_decay(epoch, NUM_EPOCHS, INIT_LR):
+    # initialize the maximum number of epochs, base learning rate,
+    # and power of the polynomial
+    maxEpochs = NUM_EPOCHS
+    baseLR = INIT_LR
+    power = 1.0
+    # compute the new learning rate based on polynomial decay
+    alpha = baseLR * (1 - (epoch / float(maxEpochs))) ** power
+    # return the new learning rate
+    return alpha
+
 if __name__ == '__main__':
 	traindatadir = '../traindata/'
 	tempdatadir = '../tempdata/'
@@ -31,6 +43,8 @@ if __name__ == '__main__':
 	# load the ylabeled data
 	ylabel_filepath = os.path.join(traindatadir, 'trainlabels.npy')
 	ylabels = np.load(ylabel_filepath)
+	invert_y = 1 - ylabels
+	ylabels = np.concatenate((ylabels, invert_y),axis=1)
 
 	# checkpoint
 	filepath=os.path.join(tempdatadir,"weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5")
@@ -62,7 +76,7 @@ if __name__ == '__main__':
 	# split into train,valid,test sets
 	datahandler = util.DataHandler()
 
-	images = scale(images, axis=0, with_mean=True, with_std=True, copy=True )
+	# images = scale(images, axis=0, with_mean=True, with_std=True, copy=True )
 
 	# format the data correctly 
 	# (X_train, y_train), (X_val, y_val), (X_test, y_test) = datahandler.reformatinput(images, labels)
@@ -88,9 +102,9 @@ if __name__ == '__main__':
 	    height_shift_range=0.1, horizontal_flip=True,
 	    fill_mode="nearest")
 	# callbacks_list = [checkpoint]
-	callbacks = [checkpoint, keras.callbacks.LearningRateScheduler(model.train.poly_decay)]
+	callbacks = [checkpoint, poly_decay]
 	INIT_LR = 5e-3
-	 
+	G=1
 	HH = vggcnn.fit_generator(
 	    aug.flow(X_train, y_train, batch_size=batch_size * G), # adds augmentation to data using generator
 	    validation_data=(X_test, y_test),  
