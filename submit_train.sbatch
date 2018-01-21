@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #SBATCH
+#SBATCH -p gpu # or -p parallel
 #SBATCH --mail-type=end
 #SBATCH --mail-user=ali39@jhu.edu
 #SBATCH --output=_out/%A.out 
@@ -8,7 +9,6 @@
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=6
-#SBATCH -p gpu # or -p parallel
 
 # Author: Adam Li (ali39@jhu.edu).
 # Created on 2017-10-31. 
